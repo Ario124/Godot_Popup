@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Popup.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/Gugi-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
+use_filter = true
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Gugi-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+use_filter = true
+font_data = SubResource( 1 )
+
+[node name="Popup" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.12549, 0.145098, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 267.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 400
+custom_constants/margin_top = 50
+custom_constants/margin_left = 400
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+margin_left = 400.0
+margin_top = 50.0
+margin_right = 624.0
+margin_bottom = 217.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="WindowDialog" type="WindowDialog" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+visible = true
+margin_right = 224.0
+margin_bottom = 167.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/title_font = SubResource( 4 )
+window_title = "POPUP"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 271.0
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/margin_right = 400
+custom_constants/margin_top = 100
+custom_constants/margin_left = 400
+custom_constants/margin_bottom = 200
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+margin_left = 400.0
+margin_top = 100.0
+margin_right = 624.0
+margin_bottom = 129.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer2"]
+margin_right = 224.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "CLICK ME"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer2/Button" to="." method="_on_Button_pressed"]
